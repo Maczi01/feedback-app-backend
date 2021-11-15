@@ -2,6 +2,7 @@ package com.feedback.app.user.model;
 
 import com.feedback.app.common.BaseEntity;
 import com.feedback.app.feedback.model.Feedback;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,13 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class User extends BaseEntity {
 
 
     @OneToMany(mappedBy = "user")
     private List<Feedback> feedbacks = new ArrayList<>();
-
-
 
 }
