@@ -36,10 +36,10 @@ out/
 ### VS Code ###
 .vscode/
 
-/gradle
-/build.gradle
-/feedack-app-backend.iml
-/gradlew
-/gradlew.bat
-/HELP.md
-/settings.gradle
+#/gradle
+#/build.gradle
+#/feedack-app-backend.iml
+#/gradlew
+#/gradlew.bat
+#/HELP.md
+#/settings.gradle
