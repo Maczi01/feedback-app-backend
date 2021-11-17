@@ -20,7 +20,7 @@ public class Product extends BaseEntity {
 
     private String name;
 
-    List<Category> categoryList = new ArrayList<>();
+//    List<Category> categoryList = new ArrayList<>();
 
     @OneToMany(mappedBy = "product")
     private List<Feedback> feedbacks = new ArrayList<>();
