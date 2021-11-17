@@ -14,21 +14,27 @@ import java.util.Date;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Feedback extends BaseEntity {
+public class Feedback {
 
+    @Id
+    @GeneratedValue
+    private Long id;
     private String title;
 
     private String description;
 
     private Date date;
 
-    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
     @JoinColumn(name="user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
     @JoinColumn(name="product_id")
     private Product product;
-
 
 }

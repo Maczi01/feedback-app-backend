@@ -4,10 +4,7 @@ import com.feedback.app.common.BaseEntity;
 import com.feedback.app.feedback.model.Feedback;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +15,17 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
-public class User extends BaseEntity {
+public class User {
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String email;
 
     @OneToMany(mappedBy = "user")
     private List<Feedback> feedbacks = new ArrayList<>();
+
+
 
 }
