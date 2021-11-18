@@ -1,6 +1,7 @@
 package com.feedback.app.product.model;
 
 import com.feedback.app.common.BaseEntity;
+import com.feedback.app.product.model.CategoryName;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,5 +22,8 @@ public class Category {
     @Enumerated(EnumType.STRING)
     private CategoryName name;
     private String description;
+//    @OneToMany
+//    @JoinColumn(name = "category_id")
+//    private List<Product> productList = new ArrayList<>();
 
 }

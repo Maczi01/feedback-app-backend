@@ -25,8 +25,7 @@ public class Product {
     @JoinColumn(name = "product_id")
     List<Category> categories = new ArrayList<>();
 
-    @OneToMany
-    @JoinColumn(name = "product_id")
+    @OneToMany(mappedBy = "product")
     private List<Feedback> feedbacks = new ArrayList<>();
 
     private Double grade;
