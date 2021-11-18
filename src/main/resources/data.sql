@@ -27,8 +27,10 @@ values (1, 'ELECTRONICS', 'agd, rtv and other electro stuff'),
 
 insert into feedback (id, title, description, date, user_id, product_id)
 values (1, 'best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 1, 1),
-    (2, 'best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 2, 2),
-    (3, 'best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 3, 3);
+       (2, 'Good chair', 'Office chair in cheap price, I recommend for players', '2019-05-11 18:56:07', 1, 2),
+       (3, 'Comfortable shoes', 'Good for running outside', '2021-01-09 08:51:11', 2, 7),
+       (4, 'Poor carper, worst!', 'Very bad quality, hard to clean it', '2020-06-22 11:31:16', 1, 11),
+       (5, 'Coffee maker for everyone', 'Nice coffee, but grinder too loud', '2018-04-08 17:44:03', 3, 13);
 
 insert into PRODUCT_CATEGORIES (product_id, categories_id)
 values (1,1),
