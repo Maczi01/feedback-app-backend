@@ -17,9 +17,7 @@ public class FeedbackService {
         return feedbackRepository.getFeedbackByProductId(id);
     }
 
-//    public List<Feedback> getTenBestFeedback(Long id){
-//        return feedbackRepository.(id);
-//    }
+
 
 
 }

@@ -1,6 +1,5 @@
 package com.feedback.app.product.model;
 
-import com.feedback.app.common.BaseEntity;
 import com.feedback.app.feedback.model.Feedback;
 import lombok.*;
 
