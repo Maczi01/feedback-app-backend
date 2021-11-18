@@ -20,14 +20,18 @@ values (1, 'Laptop', 5),
        (14, 'Door', 1),
        (15, 'TV', 2);
 
-insert into category (id, name, description, product_id)
-values (1, 'ELECTRONICS', 'agd, rtv and other electro stuff', 1),
-       (2, 'HOME', 'Things for kitchen, bathroom, garden', 1),
-       (3, 'SPORT', 'balls, sport wears, accessories', 2),
-       (4, 'SPORT', 'balls, sport wears, accessories', 2),
-       (5, 'SPORT', 'balls, sport wears, accessories', 2);
+insert into category (id, name, description)
+values (1, 'ELECTRONICS', 'agd, rtv and other electro stuff'),
+       (2, 'HOME', 'Things for kitchen, bathroom, garden'),
+       (3, 'SPORT', 'Things for sports');
 
 insert into feedback (id, title, description, date, user_id, product_id)
 values (1, 'best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 1, 1),
-       (2, 'best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 2, 2),
-       (3, 'best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 3, 3);
+    (2, 'best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 2, 2),
+    (3, 'best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 3, 3);
+
+insert into PRODUCT_CATEGORIES (product_id, categories_id)
+values (1,1),
+       (1,2),
+       (2,3),
+       (3,3);

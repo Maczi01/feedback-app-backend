@@ -21,8 +21,7 @@ public class Product {
     private Long id;
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "product_id")
+    @ManyToMany
     List<Category> categories = new ArrayList<>();
 
     @OneToMany(mappedBy = "product")
