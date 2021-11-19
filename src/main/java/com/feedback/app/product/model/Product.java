@@ -26,5 +26,5 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Feedback> feedbacks = new ArrayList<>();
 
-    private Double grade;
+    private Double averageGrade;
 }

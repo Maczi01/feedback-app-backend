@@ -1,6 +1,5 @@
 package com.feedback.app.feedback.model;
 
-import com.feedback.app.common.BaseEntity;
 import com.feedback.app.product.model.Product;
 import com.feedback.app.user.model.User;
 import lombok.*;
@@ -36,5 +35,7 @@ public class Feedback {
     )
     @JoinColumn(name="product_id")
     private Product product;
+
+    private Double grade;
 
 }
