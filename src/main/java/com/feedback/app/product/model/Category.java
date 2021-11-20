@@ -19,5 +19,4 @@ public class Category {
     private CategoryName name;
     private String description;
 
-
 }

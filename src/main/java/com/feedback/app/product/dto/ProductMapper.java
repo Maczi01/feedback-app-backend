@@ -2,7 +2,6 @@ package com.feedback.app.product.dto;
 
 import com.feedback.app.feedback.dto.FeedbackMapper;
 import com.feedback.app.product.model.Product;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
@@ -11,6 +10,10 @@ import java.util.stream.Collectors;
 public class ProductMapper {
 
     private FeedbackMapper feedbackMapper;
+
+    public ProductMapper(FeedbackMapper feedbackMapper) {
+        this.feedbackMapper = feedbackMapper;
+    }
 
     public ProductDTO entityToDTO(Product product){
         return ProductDTO.builder()

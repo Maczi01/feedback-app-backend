@@ -4,6 +4,8 @@ import com.feedback.app.feedback.model.Feedback;
 import com.feedback.app.product.model.Product;
 import com.feedback.app.user.model.User;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -13,6 +15,8 @@ import java.util.Date;
 import java.util.List;
 
 @Builder
+@Getter
+@Setter
 public class FeedbackDTO {
 
     private Long id;
