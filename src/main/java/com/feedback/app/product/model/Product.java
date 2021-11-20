@@ -20,10 +20,10 @@ public class Product {
     private Long id;
     private String name;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     List<Category> categories = new ArrayList<>();
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
     private List<Feedback> feedbacks = new ArrayList<>();
 
     private Double averageGrade;

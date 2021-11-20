@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.feedback'
+group = 'com.feedback.app'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -13,10 +13,10 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
-
-compileJava {
-    options.compilerArgs << '-parameters'
-}
+//
+//compileJava {
+//    options.compilerArgs << '-parameters'
+//}
 
 repositories {
     mavenCentral()

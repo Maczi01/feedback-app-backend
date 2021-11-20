@@ -16,7 +16,7 @@ public class ProductService {
     }
 
     public List<Product> getTenBestProducts(){
-        return null;
+        return productRepository.getTenBestProducts();
     }
 
 }

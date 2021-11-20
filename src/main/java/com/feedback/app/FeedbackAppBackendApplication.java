@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @EnableJpaRepositories
-@SpringBootApplication(scanBasePackages = {"app"})
+@SpringBootApplication(scanBasePackages = {"com.feedback.app.feedback",
+        "com.feedback.app.product",})
 public class FeedbackAppBackendApplication {
 
     public static void main(String[] args) {
