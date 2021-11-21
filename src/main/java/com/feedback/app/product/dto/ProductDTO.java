@@ -20,8 +20,7 @@ public class ProductDTO {
 
     private Long id;
     private String name;
-    List<String> categories = new ArrayList<>();
-    private List<FeedbackDTO> feedbacks = new ArrayList<>();
+    private Integer numberOfFeedbacks;
     private Double averageGrade;
 
 }

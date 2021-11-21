@@ -15,8 +15,8 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getTenBestProducts(){
-        return productRepository.getTenBestProducts();
+    public List<Product> getFiveBestProducts(){
+        return productRepository.getFiveBestProducts();
     }
 
 }

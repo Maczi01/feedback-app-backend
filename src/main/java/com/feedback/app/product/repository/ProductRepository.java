@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("select p from Product p")
-    List<Product> getTenBestProducts();
+    @Query("select p from Product p order by p.averageGrade desc")
+    List<Product> getFiveBestProducts();
 }
