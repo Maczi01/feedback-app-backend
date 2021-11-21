@@ -14,17 +14,19 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
+@Builder
 public class User {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    private String name;
+
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Feedback> feedbacks = new ArrayList<>();
-
 
 
 }

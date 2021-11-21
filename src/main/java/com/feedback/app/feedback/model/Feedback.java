@@ -1,6 +1,5 @@
 package com.feedback.app.feedback.model;
 
-import com.feedback.app.common.BaseEntity;
 import com.feedback.app.product.model.Product;
 import com.feedback.app.user.model.User;
 import lombok.*;
@@ -14,6 +13,7 @@ import java.util.Date;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Feedback {
 
     @Id
@@ -36,5 +36,7 @@ public class Feedback {
     )
     @JoinColumn(name="product_id")
     private Product product;
+
+    private Double grade;
 
 }
