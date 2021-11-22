@@ -1,7 +1,7 @@
 insert into email (id, email)
 values (1, 'mati@mati.pl'),
        (2, 'mati@mati.pl'),
-       (3, 'matimati.pl');
+       (3, 'mati@mati.pl');
 
 insert into users (id, name, email_id)
 values (1, 'Michael',1),
