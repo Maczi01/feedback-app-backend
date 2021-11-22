@@ -8,16 +8,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class FeedbackService {
 
     private FeedbackRepository feedbackRepository;
 
-    public List<Feedback> getFeedbackForProduct(Long id){
-        return feedbackRepository.getFeedbackByProductId(id);
+    public FeedbackService(FeedbackRepository feedbackRepository) {
+        this.feedbackRepository = feedbackRepository;
     }
 
-
-
-
+    public List<Feedback> getFeedbackByUserId(Long id) {
+       return feedbackRepository.getFeedbackByUserId(id);
+    }
 }

@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
-@EnableJpaRepositories
+//@EnableJpaRepositories
 @SpringBootApplication(scanBasePackages = {
         "com.feedback.app.feedback",
         "com.feedback.app.product",
