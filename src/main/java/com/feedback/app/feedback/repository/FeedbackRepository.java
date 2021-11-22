@@ -11,8 +11,7 @@ import java.util.List;
 @Repository
 public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
 
-//    @Query("select f from Feedback f join User.id on f.user.id")
-    @Query(value = "select f.id, f.title, f.date, f.description, f.grade, f.product_id, f.user_id from feedback f join users u on f.user_id = u.id where f.user_id = :id", nativeQuery = true)
+    @Query("select f from Feedback as f inner join User u on f.user.id =  u.id")
     List<Feedback> getFeedbackByUserId(@Param("id") Long id);
 
 }

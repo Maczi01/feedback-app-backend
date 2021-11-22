@@ -8,12 +8,6 @@ group = 'com.feedback.app'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-
-//
-//compileJava {
-//    options.compilerArgs << '-parameters'
-//}
-
 repositories {
     mavenCentral()
 }
