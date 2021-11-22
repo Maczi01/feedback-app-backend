@@ -1,11 +1,8 @@
 package com.feedback.app.product.mapper;
 
-import com.feedback.app.feedback.dto.FeedbackMapper;
 import com.feedback.app.product.dto.ProductDTO;
 import com.feedback.app.product.model.Product;
 import org.springframework.stereotype.Component;
-
-import java.util.stream.Collectors;
 
 @Component
 public class ProductMapper {

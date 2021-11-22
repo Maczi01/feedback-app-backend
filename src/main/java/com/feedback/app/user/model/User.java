@@ -23,7 +23,8 @@ public class User {
 
     private String name;
 
-    private String email;
+    @OneToOne
+    private Email email;
 
     @OneToMany(mappedBy = "user")
     private List<Feedback> feedbacks = new ArrayList<>();
