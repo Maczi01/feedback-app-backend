@@ -3,7 +3,7 @@ values (1, 'mati@mati.pl'),
        (2, 'mati@mati.pl'),
        (3, 'mati@mati.pl');
 
-insert into product (id, name, averageGrade)
+insert into product (id, name, average_grade)
 values (1, 'Laptop', 5),
        (2, 'Chair', 4),
        (3, 'Ball', 3),
