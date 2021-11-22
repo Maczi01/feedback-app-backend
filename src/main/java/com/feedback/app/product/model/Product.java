@@ -24,7 +24,7 @@ public class Product {
     @ManyToMany(fetch = FetchType.LAZY)
     List<Category> categories = new ArrayList<>();
 
-    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "product")
     private List<Feedback> feedbacks = new ArrayList<>();
 
     private Double averageGrade;

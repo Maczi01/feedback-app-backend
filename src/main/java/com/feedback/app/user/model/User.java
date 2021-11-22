@@ -25,7 +25,7 @@ public class User {
 
     private String email;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user")
     private List<Feedback> feedbacks = new ArrayList<>();
 
 
