@@ -20,12 +20,9 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
-
     @OneToOne
     private Email email;
-
     @OneToMany(mappedBy = "user")
     private List<Feedback> feedbacks = new ArrayList<>();
 

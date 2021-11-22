@@ -1,19 +1,16 @@
 package com.feedback.app.user.controller;
 
 import com.feedback.app.feedback.dto.FeedbackDTO;
-import com.feedback.app.feedback.dto.FeedbackMapper;
-import com.feedback.app.feedback.model.Feedback;
+import com.feedback.app.feedback.mapper.FeedbackMapper;
 import com.feedback.app.feedback.service.FeedbackService;
 import com.feedback.app.user.dto.UserDTO;
 import com.feedback.app.user.mapper.UserMapper;
 import com.feedback.app.user.model.User;
 import com.feedback.app.user.service.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

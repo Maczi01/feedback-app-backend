@@ -14,18 +14,16 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Builder
+@Table(name = "products")
 public class Product {
 
     @Id
     @GeneratedValue
     private Long id;
     private String name;
-
     @ManyToMany(fetch = FetchType.LAZY)
     List<Category> categories = new ArrayList<>();
-
     @OneToMany(mappedBy = "product")
     private List<Feedback> feedbacks = new ArrayList<>();
-
     private Double averageGrade;
 }

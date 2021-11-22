@@ -1,5 +1,6 @@
-package com.feedback.app.feedback.dto;
+package com.feedback.app.feedback.mapper;
 
+import com.feedback.app.feedback.dto.FeedbackDTO;
 import com.feedback.app.feedback.model.Feedback;
 import com.feedback.app.user.mapper.UserMapper;
 import org.springframework.stereotype.Component;
