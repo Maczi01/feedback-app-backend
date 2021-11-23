@@ -32,7 +32,10 @@ public class UserController {
     @GetMapping("/users/{id}")
     public UserDTO getUserById(@PathVariable Long id) {
         User userById = userService.getUserById(id);
-        List<FeedbackDTO> feedbacksByUserId = feedbackService.getFeedbackByUserId(id).stream().map(f -> feedbackMapper.entityToDTO(f)).collect(Collectors.toList());
+        List<FeedbackDTO> feedbacksByUserId = feedbackService.getFeedbackByUserId(id)
+                .stream()
+                .map(feedback -> feedbackMapper.entityToDTO(feedback))
+                .collect(Collectors.toList());
         UserDTO userDTO = userMapper.entityToDTO(userById);
         userDTO.setFeedbackList(feedbacksByUserId);
         return userDTO;

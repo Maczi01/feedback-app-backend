@@ -13,8 +13,8 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public List<Product> getFiveBestProducts(){
-        return productRepository.getFiveBestProducts();
+    public List<Product> getBestProducts(int amount){
+        return productRepository.getBestProducts(amount);
     }
 
 }

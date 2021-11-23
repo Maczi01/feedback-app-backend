@@ -25,10 +25,12 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<ProductDTO> getFiveBestProducts(){
-        return productService.getFiveBestProducts()
-                .stream().map(product -> productMapper.entityToDTO(product))
-                .limit(5)
+    public List<ProductDTO> getBestProducts(int amount){
+        return productService.getBestProducts(amount)
+                .stream()
+                .map(product -> productMapper.entityToDTO(product))
                 .collect(Collectors.toList());
     }
+
+
 }
