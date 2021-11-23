@@ -36,6 +36,10 @@ out/
 ### VS Code ###
 .vscode/
 
+build
+out
+.DS_Store
+
 #/gradle
 #/build.gradle
 #/feedack-app-backend.iml
