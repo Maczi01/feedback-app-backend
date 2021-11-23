@@ -2,7 +2,6 @@ package com.feedback.app.feedback.service;
 
 import com.feedback.app.feedback.model.Feedback;
 import com.feedback.app.feedback.repository.FeedbackRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,5 +17,10 @@ public class FeedbackService {
 
     public List<Feedback> getFeedbackByUserId(Long id) {
        return feedbackRepository.getFeedbackByUserId(id);
+    }
+
+    public Feedback getFeedbackById(Long id) throws FeedbackNotFoundException {
+        return feedbackRepository.findById(id)
+                .orElseThrow(() -> new FeedbackNotFoundException("Can not find product with id: " + id));
     }
 }
