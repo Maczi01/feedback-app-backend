@@ -22,4 +22,8 @@ public class ProductService {
                 .orElseThrow(() -> new ProductNotFoundException("Can not find product with id: " + id));
     }
 
+    public Product addProduct(Product product) {
+        System.out.println(product);
+        return productRepository.save(product);
+    }
 }

@@ -2,6 +2,7 @@ package com.feedback.app.product.controller;
 
 import com.feedback.app.product.dto.ProductDTO;
 import com.feedback.app.product.mapper.ProductMapper;
+import com.feedback.app.product.model.Product;
 import com.feedback.app.product.service.ProductNotFoundException;
 import com.feedback.app.product.service.ProductService;
 import io.swagger.v3.oas.annotations.Hidden;
@@ -35,5 +36,13 @@ public class ProductController {
                 .stream()
                 .map(product -> productMapper.entityToDTO(product))
                 .collect(Collectors.toList());
+    }
+
+    @PostMapping
+    public ProductDTO addProduct(@RequestBody ProductDTO productDTO){
+        Product product = productMapper.toEntity(productDTO);
+        Product savedProduct = productService.addProduct(product);
+        System.out.println(savedProduct);
+        return productMapper.entityToDTO(savedProduct);
     }
 }
