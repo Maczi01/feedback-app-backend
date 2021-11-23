@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query(value = "select p from products p order by p.averageGrade desc limit :amount", nativeQuery = true)
+    @Query(value = "select p.id, p.name, p.average_grade from products p order by p.average_grade desc limit :amount", nativeQuery = true)
     List<Product> getBestProducts(@Param("amount") int amount);
 }

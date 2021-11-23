@@ -2,18 +2,18 @@ package com.feedback.app.product.controller;
 
 import com.feedback.app.product.dto.ProductDTO;
 import com.feedback.app.product.mapper.ProductMapper;
+import com.feedback.app.product.service.ProductNotFoundException;
 import com.feedback.app.product.service.ProductService;
+import io.swagger.v3.oas.annotations.Hidden;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("api/v1/products")
 public class ProductController {
 
     private ProductService productService;
@@ -24,13 +24,16 @@ public class ProductController {
         this.productMapper = productMapper;
     }
 
-    @GetMapping
-    public List<ProductDTO> getBestProducts(int amount){
+    @GetMapping("{id}")
+    public ProductDTO getProductById(@PathVariable Long id) throws ProductNotFoundException {
+        return productMapper.entityToDTO(productService.getProductById(id));
+    }
+
+    @GetMapping("/best")
+    public List<ProductDTO> getBestProducts(@RequestParam(defaultValue = "5") int amount){
         return productService.getBestProducts(amount)
                 .stream()
                 .map(product -> productMapper.entityToDTO(product))
                 .collect(Collectors.toList());
     }
-
-
 }

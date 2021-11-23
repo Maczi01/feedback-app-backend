@@ -17,4 +17,9 @@ public class ProductService {
         return productRepository.getBestProducts(amount);
     }
 
+    public Product getProductById(Long id) throws ProductNotFoundException {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new ProductNotFoundException("Can not find product with id: " + id));
+    }
+
 }
