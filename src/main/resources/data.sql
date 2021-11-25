@@ -34,7 +34,7 @@ insert into feedbacks (id, title, description, date, grade, user_id, product_id)
 values (1, 'Best laptop', 'solid laptop, best ever', '2017-10-08 15:00:00', 2, 1, 1),
        (2, 'Good chair', 'Office chair in cheap price, I recommend for players', '2019-05-11 18:56:07', 3, 1, 2),
        (3, 'Comfortable shoes', 'Good for running outside', '2021-01-09 08:51:11', 3, 2, 7),
-       (4, 'Worst carper!', 'Very bad quality, hard to clean it', '2020-06-22 11:31:16', 0, 1, 11),
+       (4, 'Worst carpet!', 'Very bad quality, hard to clean it', '2020-06-22 11:31:16', 0, 1, 11),
        (5, 'Coffee maker for everyone', 'Nice coffee, but grinder too loud', '2018-04-08 17:44:03', 5, 3, 13);
 
 insert into PRODUCTS_CATEGORIES (product_id, categories_id)

@@ -27,4 +27,8 @@ public class FeedbackService {
     public List<Feedback> getFeedbackByProductId(Long id) {
         return feedbackRepository.getFeedbackByProductId(id);
     }
+
+    public List<Feedback> getLatestFeedbacks(int amount) {
+        return feedbackRepository.getLatestFeedbacks(amount);
+    }
 }

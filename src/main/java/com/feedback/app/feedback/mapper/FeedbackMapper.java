@@ -14,7 +14,7 @@ public class FeedbackMapper {
         this.userMapper = userMapper;
     }
 
-    public FeedbackDTO entityToDTO(Feedback feedback){
+    public FeedbackDTO entityToDTO(Feedback feedback) {
         return FeedbackDTO.builder()
                 .id(feedback.getId())
                 .title(feedback.getTitle())
@@ -26,5 +26,15 @@ public class FeedbackMapper {
                 .build();
     }
 
-
+    public FeedbackDTO toEntity(Feedback feedback) {
+        return FeedbackDTO.builder()
+                .id(feedback.getId())
+                .title(feedback.getTitle())
+                .description(feedback.getDescription())
+                .grade(feedback.getGrade())
+                .date(feedback.getDate())
+//                .user(feedback.getUser().toString())
+//                .product(feedback.getProduct().getName())
+                .build();
+    }
 }

@@ -16,4 +16,9 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
 
     @Query("select f from Feedback as f inner join Product p on f.user.id =  p.id where f.user.id = :id")
     List<Feedback> getFeedbackByProductId(@Param("id") Long id);
+
+    @Query(value = "select f.id, f.title, f.description, f.date, f.grade, f.user_id, f.product_id" +
+            " from feedbacks as f order by f.date desc limit :amount", nativeQuery = true)
+    List<Feedback> getLatestFeedbacks(@Param("amount") int amount);
 }
+
