@@ -1,35 +1,30 @@
 package com.feedback.app.user.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.feedback.app.user.service.WrongEmailException;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+@Builder
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "emails")
 public class Email {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String email;
 
-    public Email(Long id, String email) {
-        this.id = id;
+    public Email(String email) throws WrongEmailException {
         this.email = validate(email);
     }
 
-    private String validate(String email) {
+    private String validate(String email) throws WrongEmailException {
         if(!email.contains("@")){
-            throw new IllegalArgumentException();
+            throw new WrongEmailException("Incorrect email");
         }
         return email;
     }

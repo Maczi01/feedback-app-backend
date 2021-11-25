@@ -23,4 +23,8 @@ public class FeedbackService {
         return feedbackRepository.findById(id)
                 .orElseThrow(() -> new FeedbackNotFoundException("Can not find product with id: " + id));
     }
+
+    public List<Feedback> getFeedbackByProductId(Long id) {
+        return feedbackRepository.getFeedbackByProductId(id);
+    }
 }

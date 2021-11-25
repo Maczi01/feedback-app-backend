@@ -13,7 +13,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public List<Product> getBestProducts(int amount){
+    public List<Product> getBestProducts(int amount) {
         return productRepository.getBestProducts(amount);
     }
 
@@ -22,8 +22,11 @@ public class ProductService {
                 .orElseThrow(() -> new ProductNotFoundException("Can not find product with id: " + id));
     }
 
+    public List<Product> getAllProduct() {
+        return productRepository.findAll();
+    }
+
     public Product addProduct(Product product) {
-        System.out.println(product);
         return productRepository.save(product);
     }
 }

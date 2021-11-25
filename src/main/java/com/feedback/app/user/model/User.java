@@ -7,13 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.OneToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.FetchType;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +23,10 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Email email;
     @OneToMany(mappedBy = "user")
     private List<Feedback> feedbacks = new ArrayList<>();

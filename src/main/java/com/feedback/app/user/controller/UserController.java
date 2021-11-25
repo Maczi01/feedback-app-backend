@@ -7,14 +7,14 @@ import com.feedback.app.user.dto.UserDTO;
 import com.feedback.app.user.mapper.UserMapper;
 import com.feedback.app.user.model.User;
 import com.feedback.app.user.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.feedback.app.user.service.WrongEmailException;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("api/v1/users")
 public class UserController {
 
     private UserService userService;
@@ -29,7 +29,7 @@ public class UserController {
         this.feedbackService = feedbackService;
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public UserDTO getUserById(@PathVariable Long id) {
         User userById = userService.getUserById(id);
         List<FeedbackDTO> feedbacksByUserId = feedbackService.getFeedbackByUserId(id)
@@ -41,5 +41,11 @@ public class UserController {
         return userDTO;
     }
 
+    @PostMapping
+    public UserDTO addNewUser(@RequestBody UserDTO userDTO) throws WrongEmailException {
+        User user = userMapper.toEntity(userDTO);
+        User savedUser = userService.addNewUser(user);
+        return userMapper.entityToDTO(savedUser);
+    }
 
 }

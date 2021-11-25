@@ -10,10 +10,9 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class EmailDTO {
 
     private Long id;
     private String name;
     private String email;
-    private List<FeedbackDTO> feedbackList;
 }
