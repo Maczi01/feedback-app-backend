@@ -1,9 +1,7 @@
 package com.feedback.app.user.service;
 
-import com.feedback.app.user.dto.UserDTO;
 import com.feedback.app.user.model.User;
 import com.feedback.app.user.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -8,7 +8,13 @@ import com.feedback.app.product.mapper.ProductMapper;
 import com.feedback.app.product.model.Product;
 import com.feedback.app.product.service.ProductNotFoundException;
 import com.feedback.app.product.service.ProductService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,7 +46,7 @@ public class ProductController {
         return productDTO;
     }
 
-    @GetMapping("")
+    @GetMapping
     public List<ProductDTO> getProducts() {
         return productService.getAllProduct()
                 .stream()

@@ -1,9 +1,15 @@
 package com.feedback.app.user.model;
 
 import com.feedback.app.user.service.WrongEmailException;
-import lombok.*;
-
-import javax.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.GenerationType;
 
 @Builder
 @Entity

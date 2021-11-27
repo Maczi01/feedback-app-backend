@@ -33,8 +33,6 @@ public class FeedbackMapper {
                 .description(feedback.getDescription())
                 .grade(feedback.getGrade())
                 .date(feedback.getDate())
-//                .user(feedback.getUser().toString())
-//                .product(feedback.getProduct().getName())
                 .build();
     }
 }

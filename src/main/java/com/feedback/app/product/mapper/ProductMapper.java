@@ -1,12 +1,10 @@
 package com.feedback.app.product.mapper;
 
 import com.feedback.app.product.dto.ProductDTO;
-import com.feedback.app.product.model.Category;
 import com.feedback.app.product.model.Product;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class ProductMapper {
