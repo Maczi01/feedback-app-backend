@@ -4,7 +4,6 @@ import com.feedback.app.common.Mapper;
 import com.feedback.app.user.dto.UserDTO;
 import com.feedback.app.user.model.Email;
 import com.feedback.app.user.model.User;
-import com.feedback.app.user.service.WrongEmailException;
 import org.springframework.stereotype.Component;
 
 @Component
