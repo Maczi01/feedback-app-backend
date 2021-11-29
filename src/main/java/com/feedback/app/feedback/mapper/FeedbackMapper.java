@@ -1,12 +1,16 @@
 package com.feedback.app.feedback.mapper;
 
+import com.feedback.app.common.Mapper;
 import com.feedback.app.feedback.dto.FeedbackDTO;
 import com.feedback.app.feedback.model.Feedback;
+import com.feedback.app.user.dto.UserDTO;
 import com.feedback.app.user.mapper.UserMapper;
+import com.feedback.app.user.model.User;
+import com.feedback.app.user.service.WrongEmailException;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FeedbackMapper {
+public class FeedbackMapper implements Mapper {
 
     private UserMapper userMapper;
 
@@ -35,4 +39,5 @@ public class FeedbackMapper {
                 .date(feedback.getDate())
                 .build();
     }
+
 }
