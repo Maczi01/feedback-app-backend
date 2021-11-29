@@ -20,11 +20,8 @@ public class UserMapper implements Mapper<UserDTO, User> {
                 .build();
     }
 
-
-}
-
     @Override
-    public User toEntity(UserDTO user) throws WrongEmailException {
+    public User toEntity(UserDTO user) {
         return User.builder()
                 .id(user.getId())
                 .email(new Email())

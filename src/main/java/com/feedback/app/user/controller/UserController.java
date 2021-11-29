@@ -36,16 +36,16 @@ public class UserController {
                 .stream()
                 .map(feedback -> feedbackMapper.entityToDTO(feedback))
                 .collect(Collectors.toList());
-        UserDTO userDTO = userMapper.entityToDTO(userById);
+        UserDTO userDTO = userMapper.toDTO(userById);
         userDTO.setFeedbackList(feedbacksByUserId);
         return userDTO;
     }
 
     @PostMapping
-    public UserDTO addNewUser(@RequestBody UserDTO userDTO) throws WrongEmailException {
+    public UserDTO addNewUser(@RequestBody UserDTO userDTO) {
         User user = userMapper.toEntity(userDTO);
         User savedUser = userService.addNewUser(user);
-        return userMapper.entityToDTO(savedUser);
+        return userMapper.toDTO(savedUser);
     }
 
 }
