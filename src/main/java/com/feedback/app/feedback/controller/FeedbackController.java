@@ -27,13 +27,13 @@ public class FeedbackController {
 
     @GetMapping("{id}")
     public FeedbackDTO getFeedbackById(@PathVariable Long id) throws FeedbackNotFoundException {
-        return feedbackMapper.entityToDTO(feedbackService.getFeedbackById(id));
+        return feedbackMapper.toDTO(feedbackService.getFeedbackById(id));
     }
 
     @GetMapping("/latest")
     public List<FeedbackDTO> getLatestFeedbacks(@RequestParam(defaultValue = "5") int amount){
         return feedbackService.getLatestFeedbacks(amount).stream()
-                .map(feedback -> feedbackMapper.toEntity(feedback))
+                .map(feedback -> feedbackMapper.toDTO(feedback))
                 .collect(Collectors.toList());
     }
 
