@@ -1,8 +1,6 @@
 package com.feedback.app.feedback.controller;
 
 import com.feedback.app.feedback.dto.FeedbackDTO;
-import com.feedback.app.feedback.mapper.FeedbackMapper;
-import com.feedback.app.feedback.model.Feedback;
 import com.feedback.app.feedback.service.FeedbackNotFoundException;
 import com.feedback.app.feedback.service.FeedbackService;
 import org.springframework.web.bind.annotation.GetMapping;
