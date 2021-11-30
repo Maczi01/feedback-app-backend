@@ -38,11 +38,11 @@ public class ProductController {
 
     @GetMapping("{id}")
     public ProductDTO getProductById(@PathVariable Long id) throws ProductNotFoundException {
-        ProductDTO productDTO = productMapper.entityToDTO(productService.getProductById(id));
+        ProductDTO productDTO = productMapper.toDTO(productService.getProductById(id));
         List<FeedbackDTO> feedbacks = feedbackService.getFeedbackByProductId(id).stream()
-                .map(feedback -> feedbackMapper.entityToDTO(feedback))
+                .map(feedback -> feedbackMapper.toDTO(feedback))
                 .collect(Collectors.toList());
-        productDTO.setFeedbacks(feedbacks);
+//        productDTO.setFeedbacks(feedbacks);
         return productDTO;
     }
 
@@ -50,7 +50,7 @@ public class ProductController {
     public List<ProductDTO> getProducts() {
         return productService.getAllProduct()
                 .stream()
-                .map(product -> productMapper.entityToDTO(product))
+                .map(product -> productMapper.toDTO(product))
                 .collect(Collectors.toList());
     }
 
@@ -58,7 +58,7 @@ public class ProductController {
     public List<ProductDTO> getBestProducts(@RequestParam(defaultValue = "5") int amount) {
         return productService.getBestProducts(amount)
                 .stream()
-                .map(product -> productMapper.entityToDTO(product))
+                .map(product -> productMapper.toDTO(product))
                 .collect(Collectors.toList());
     }
 
@@ -67,6 +67,6 @@ public class ProductController {
         Product product = productMapper.toEntity(productDTO);
         Product savedProduct = productService.addProduct(product);
         System.out.println(savedProduct);
-        return productMapper.entityToDTO(savedProduct);
+        return productMapper.toDTO(savedProduct);
     }
 }

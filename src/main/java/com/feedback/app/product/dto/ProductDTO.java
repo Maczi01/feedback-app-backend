@@ -17,6 +17,5 @@ public class ProductDTO {
     private Integer numberOfFeedbacks;
     private Double averageGrade;
     private List<String> categories;
-    private List<FeedbackDTO> feedbacks;
 
 }

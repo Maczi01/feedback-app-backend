@@ -34,7 +34,7 @@ public class UserController {
         User userById = userService.getUserById(id);
         List<FeedbackDTO> feedbacksByUserId = feedbackService.getFeedbackByUserId(id)
                 .stream()
-                .map(feedback -> feedbackMapper.entityToDTO(feedback))
+                .map(feedback -> feedbackMapper.toDTO(feedback))
                 .collect(Collectors.toList());
         UserDTO userDTO = userMapper.toDTO(userById);
         userDTO.setFeedbackList(feedbacksByUserId);
