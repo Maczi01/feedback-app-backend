@@ -7,6 +7,7 @@ import com.feedback.app.feedback.repository.FeedbackRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FeedbackService {
@@ -33,7 +34,10 @@ public class FeedbackService {
         return feedbackRepository.getFeedbackByProductId(id);
     }
 
-    public List<Feedback> getLatestFeedbacks(int amount) {
-        return feedbackRepository.getLatestFeedbacks(amount);
+    public List<FeedbackDTO> getLatestFeedbacks(int amount) {
+        return feedbackRepository.getLatestFeedbacks(amount)
+                .stream()
+                .map(feedback -> feedbackMapper.toDTO(feedback))
+                .collect(Collectors.toList());
     }
 }

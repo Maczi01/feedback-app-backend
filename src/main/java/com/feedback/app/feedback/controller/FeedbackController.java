@@ -12,18 +12,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/feedbacks")
 public class FeedbackController {
 
     private FeedbackService feedbackService;
-    private FeedbackMapper feedbackMapper;
 
-    public FeedbackController(FeedbackService feedbackService, FeedbackMapper feedbackMapper) {
+    public FeedbackController(FeedbackService feedbackService) {
         this.feedbackService = feedbackService;
-        this.feedbackMapper = feedbackMapper;
     }
 
     @GetMapping("{id}")
@@ -33,9 +30,7 @@ public class FeedbackController {
 
     @GetMapping("/latest")
     public List<FeedbackDTO> getLatestFeedbacks(@RequestParam(defaultValue = "5") int amount){
-        return feedbackService.getLatestFeedbacks(amount).stream()
-                .map(feedback -> feedbackMapper.toDTO(feedback))
-                .collect(Collectors.toList());
+        return feedbackService.getLatestFeedbacks(amount);
     }
 
 
