@@ -3,6 +3,8 @@ package com.feedback.app.feedback.controller;
 import com.feedback.app.feedback.dto.FeedbackDTO;
 import com.feedback.app.feedback.service.FeedbackNotFoundException;
 import com.feedback.app.feedback.service.FeedbackService;
+import io.swagger.models.Response;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,13 +24,13 @@ public class FeedbackController {
     }
 
     @GetMapping("{id}")
-    public FeedbackDTO getFeedbackById(@PathVariable Long id) throws FeedbackNotFoundException {
-        return feedbackService.getFeedbackById(id);
+    public ResponseEntity<FeedbackDTO> getFeedbackById(@PathVariable Long id) {
+        return ResponseEntity.ok(feedbackService.getFeedbackById(id));
     }
 
     @GetMapping("/latest")
-    public List<FeedbackDTO> getLatestFeedbacks(@RequestParam(defaultValue = "5") int amount){
-        return feedbackService.getLatestFeedbacks(amount);
+    public ResponseEntity<List<FeedbackDTO>> getLatestFeedbacks(@RequestParam(defaultValue = "5") int amount){
+        return ResponseEntity.ok(feedbackService.getLatestFeedbacks(amount));
     }
 
 
