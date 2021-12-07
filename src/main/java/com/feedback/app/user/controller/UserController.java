@@ -2,8 +2,10 @@ package com.feedback.app.user.controller;
 
 import com.feedback.app.user.dto.UserDTO;
 import com.feedback.app.user.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -30,8 +32,11 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> addNewUser(@RequestBody UserDTO userDTO) {
-        UserDTO createdUser = userService.addNewUser(userDTO);
+    public ResponseEntity<UserDTO> addNewUser(@RequestBody UserDTO user) {
+        if (user.getId() != null){
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "User can not has ID!");
+        }
+        UserDTO createdUser = userService.addNewUser(user);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
