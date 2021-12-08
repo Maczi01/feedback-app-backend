@@ -9,12 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserMapper implements Mapper<UserDTO, User> {
 
-
     @Override
     public UserDTO toDTO(User user) {
         return UserDTO.builder()
                 .id(user.getId())
-                .email(new Email().getEmail())
+                .email(user.getEmail().getEmail())
                 .name(user.getName())
                 .build();
     }
@@ -23,7 +22,7 @@ public class UserMapper implements Mapper<UserDTO, User> {
     public User toEntity(UserDTO user) {
         return User.builder()
                 .id(user.getId())
-                .email(new Email())
+                .email(new Email(user.getEmail()))
                 .name(user.getName())
                 .build();
     }
