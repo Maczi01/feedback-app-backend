@@ -1,6 +1,6 @@
 package com.feedback.app.user.model;
 
-import com.feedback.app.user.service.WrongEmailException;
+import com.feedback.app.user.service.WrongEmailFormatException;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
@@ -11,12 +11,12 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.GenerationType;
 
-@Builder
 @Entity
+@Table(name = "emails")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "emails")
+@Builder
 public class Email {
 
     @Id
@@ -24,13 +24,13 @@ public class Email {
     private Long id;
     private String email;
 
-    public Email(String email) throws WrongEmailException {
+    public Email(String email) throws WrongEmailFormatException {
         this.email = validate(email);
     }
 
-    private String validate(String email) throws WrongEmailException {
+    private String validate(String email) throws WrongEmailFormatException {
         if(!email.contains("@")){
-            throw new WrongEmailException("Incorrect email");
+            throw new WrongEmailFormatException("Incorrect email");
         }
         return email;
     }
