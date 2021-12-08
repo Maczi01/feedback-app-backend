@@ -48,7 +48,6 @@ public class UserService {
     public UserDTO addNewUser(UserDTO userDTO) {
         User user = userMapper.toEntity(userDTO);
         User savedUser = userRepository.save(user);
-        System.out.println(savedUser.getEmail().getEmail());
         log.info("User {} successfully added", user.getName());
         return userMapper.toDTO(savedUser);
     }

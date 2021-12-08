@@ -6,6 +6,8 @@ import com.feedback.app.feedback.model.Feedback;
 import com.feedback.app.user.mapper.UserMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class FeedbackMapper implements Mapper<FeedbackDTO, Feedback> {
 
@@ -22,7 +24,8 @@ public class FeedbackMapper implements Mapper<FeedbackDTO, Feedback> {
                 .title(feedback.getTitle())
                 .description(feedback.getDescription())
                 .grade(feedback.getGrade())
-                .date(feedback.getDate())
+//                TODO - change method
+                .date(new Date(feedback.getDate()))
                 .build();
     }
 
@@ -34,7 +37,7 @@ public class FeedbackMapper implements Mapper<FeedbackDTO, Feedback> {
                 .description(feedback.getDescription())
                 .user(userMapper.toDTO(feedback.getUser()).getName())
                 .product(feedback.getProduct().getName())
-                .date(feedback.getDate())
+                .date(feedback.getDate().toString())
                 .grade(feedback.getGrade())
                 .build();
     }

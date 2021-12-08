@@ -14,7 +14,7 @@ public class FeedbackDTO {
     private Long id;
     private String title;
     private String description;
-    private Date date;
+    private String date;
     private String user;
     private String product;
     private Double grade;
