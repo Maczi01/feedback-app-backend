@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "08ea3b22-af4e-4987-8002-b103c4d011d5",
+		"name": "FeedbackApp test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET All users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()\r",
+							"\r",
+							"pm.globals.set(\"id\", response.id);\r",
+							"\r",
+							"pm.test(\"Status code is 200\",  ()=> {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response should contains 5000 records\",  () => {\r",
+							"    pm.expect(response.length).to.equal(3);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response has not error\", function () {\r",
+							"    pm.response.to.not.be.error;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mike\",\r\n    \"email\": \"mikemike@miks.pl\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/{{apiVersion}}/{{users}}",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{apiVersion}}",
+						"{{users}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Add new user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()\r",
+							"\r",
+							"pm.globals.set(\"id\", response.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status is 'Created'\", () => {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response has not error\", () => {\r",
+							"    pm.response.to.not.be.error;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Username should be correct\", () => {\r",
+							"    pm.expect(response.username).to.equal(pm.collectionVariables.get('randomUserName'))\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Email name should be correct\", () => {\r",
+							"    pm.expect(response.email).to.equal(pm.collectionVariables.get('randomEmail'))\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const name = pm.variables.replaceIn(\"{{$randomFullName}}\");\r",
+							"pm.collectionVariables.set(\"randomName\", name);\r",
+							"\r",
+							"const userName = pm.variables.replaceIn(\"{{$randomUserName}}\");\r",
+							"pm.collectionVariables.set(\"randomUserName\", userName);\r",
+							"\r",
+							"const userEmail = pm.variables.replaceIn(\"{{$randomEmail}}\");\r",
+							"pm.collectionVariables.set(\"randomEmail\", userEmail);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": {{userName}},\r\n        \"email\": {{userEmail}}    \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/{{apiVersion}}/{{users}}",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{apiVersion}}",
+						"{{users}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Fail Add new user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()\r",
+							"\r",
+							"pm.globals.set(\"id\", response.id);\r",
+							"\r",
+							"pm.test(\"Status code is 409\", () => {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status is 'Created'\", () => {\r",
+							"    pm.response.to.have.status(\"Conflict\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response has error\", () => {\r",
+							"    pm.response.to.be.error;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"name\": \"Michael\",\r\n        \"email\": \"michael@michael.pl\"    \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}/{{apiVersion}}/{{users}}",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"{{apiVersion}}",
+						"{{users}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "randomName",
+			"value": ""
+		},
+		{
+			"key": "randomUserName",
+			"value": ""
+		},
+		{
+			"key": "randomEmail",
+			"value": ""
+		}
+	]
+}
