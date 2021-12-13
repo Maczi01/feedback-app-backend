@@ -31,11 +31,12 @@ public class FeedbackMapper implements Mapper<FeedbackDTO, Feedback> {
 
     @Override
     public FeedbackDTO toDTO(Feedback feedback) {
+        System.out.println(feedback.getProduct());
         return FeedbackDTO.builder()
                 .id(feedback.getId())
                 .title(feedback.getTitle())
                 .description(feedback.getDescription())
-                .user(userMapper.toDTO(feedback.getUser()).getName())
+//                .user(userMapper.toDTO(feedback.getUser()).getName())
                 .product(feedback.getProduct().getName())
                 .date(feedback.getDate().toString())
                 .grade(feedback.getGrade())

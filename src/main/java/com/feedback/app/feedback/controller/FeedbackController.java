@@ -29,6 +29,11 @@ public class FeedbackController {
         return ResponseEntity.ok(feedbackService.getFeedbackById(id));
     }
 
+    @GetMapping("")
+    public ResponseEntity<List<FeedbackDTO>> getFeedbackById() {
+        return ResponseEntity.ok(feedbackService.getAllFeedbacks());
+    }
+
     @GetMapping("/latest")
     public ResponseEntity<List<FeedbackDTO>> getLatestFeedbacks(@RequestParam(defaultValue = "5") int amount){
         return ResponseEntity.ok(feedbackService.getLatestFeedbacks(amount));

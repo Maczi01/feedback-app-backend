@@ -43,9 +43,17 @@ public class FeedbackService {
     }
 
     public FeedbackDTO addNewFeedback(FeedbackDTO feedbackDTO) {
+        System.out.println(feedbackDTO.getUser());
         Feedback feedback = feedbackMapper.toEntity(feedbackDTO);
         Feedback savedFeedback = feedbackRepository.save(feedback);
         return feedbackMapper.toDTO(savedFeedback);
 
+    }
+
+    public List<FeedbackDTO> getAllFeedbacks() {
+        return feedbackRepository.findAll()
+                .stream()
+                .map(feedback -> feedbackMapper.toDTO(feedback))
+                .collect(Collectors.toList());
     }
 }
