@@ -41,7 +41,7 @@ dependencies {
 //    compileOnly 'com.h2database:h2:1.4.200'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation platform("org.spockframework:spock-bom:2.0-groovy-3.0")
-    testImplementation "org.spockframework:spock-core"
+    testImplementation group: 'org.spockframework', name: 'spock-core', version: '1.3-groovy-2.5'
     testImplementation "org.hamcrest:hamcrest-core:2.2"   // only necessary if Hamcrest matchers are used
     testRuntimeOnly "net.bytebuddy:byte-buddy:1.11.0" // allows mocking of classes (in addition to interfaces)
     testRuntimeOnly "org.objenesis:objenesis:3.2"      // allows mocking of classes without default constructor (together with ByteBuddy or CGLIB)
