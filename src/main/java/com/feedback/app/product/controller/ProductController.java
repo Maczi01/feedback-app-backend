@@ -1,6 +1,6 @@
 package com.feedback.app.product.controller;
 
-import com.feedback.app.product.dto.ProductDTO;
+import com.feedback.app.product.dto.ProductDetailsDTO;
 import com.feedback.app.product.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,23 +26,23 @@ public class ProductController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) {
+    public ResponseEntity<ProductDetailsDTO> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductDTO>> getProducts() {
+    public ResponseEntity<List<ProductDetailsDTO>> getProducts() {
         return ResponseEntity.ok(productService.getAllProduct());
     }
 
     @GetMapping("/best")
-    public ResponseEntity<List<ProductDTO>> getBestProducts(@RequestParam(defaultValue = "5") int amount) {
+    public ResponseEntity<List<ProductDetailsDTO>> getBestProducts(@RequestParam(defaultValue = "5") int amount) {
         return ResponseEntity.ok(productService.getBestProducts(amount));
     }
 
     @PostMapping
-    public ResponseEntity<ProductDTO> addProduct(@RequestBody ProductDTO productDTO) {
-        ProductDTO createdProduct = productService.addProduct(productDTO);
+    public ResponseEntity<ProductDetailsDTO> addProduct(@RequestBody ProductDetailsDTO productDTO) {
+        ProductDetailsDTO createdProduct = productService.addProduct(productDTO);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")

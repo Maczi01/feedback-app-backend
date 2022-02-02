@@ -4,7 +4,6 @@ import com.feedback.app.feedback.dto.FeedbackDTO;
 import com.feedback.app.feedback.mapper.FeedbackMapper;
 import com.feedback.app.feedback.model.Feedback;
 import com.feedback.app.feedback.repository.FeedbackRepository;
-import com.feedback.app.user.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

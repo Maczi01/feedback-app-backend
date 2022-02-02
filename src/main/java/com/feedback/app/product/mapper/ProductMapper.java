@@ -1,16 +1,16 @@
 package com.feedback.app.product.mapper;
 
 import com.feedback.app.common.Mapper;
-import com.feedback.app.product.dto.ProductDTO;
+import com.feedback.app.product.dto.ProductDetailsDTO;
 import com.feedback.app.product.model.Product;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
 @Component
-public class ProductMapper implements Mapper<ProductDTO, Product> {
+public class ProductMapper implements Mapper<ProductDetailsDTO, Product> {
     @Override
-    public Product toEntity(ProductDTO product) {
+    public Product toEntity(ProductDetailsDTO product) {
                 return Product.builder()
                 .id(product.getId())
                 .averageGrade(0.0)
@@ -20,8 +20,8 @@ public class ProductMapper implements Mapper<ProductDTO, Product> {
     }
 
     @Override
-    public ProductDTO toDTO(Product product) {
-        return ProductDTO.builder()
+    public ProductDetailsDTO toDTO(Product product) {
+        return ProductDetailsDTO.builder()
                 .id(product.getId())
                 .name(product.getName())
                 .numberOfFeedbacks(product.getFeedbacks().size())
